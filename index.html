@@ -4,8 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Physical Computing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-in {
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+
+        .fade-in-visible {
+            opacity: 1;
+        }
+    </style>
 </head>
-<body>
-    
+<body class="h-screen flex flex-col justify-center items-center bg-gray-100">
+    <img id="header-img" src="public/img/Header.png" alt="Header" class="w-max h-auto mt-2 fade-in">
+    <img src="public/img/presented.png" alt="Presented by" class="mt-2 max-w-max h-auto">
+    <img src="public/img/name.png" alt="Name" class="w-max h-auto mt-10">
+
+    <script>
+        window.addEventListener('load', function() {
+            const headerImg = document.getElementById('header-img');
+            headerImg.classList.add('fade-in-visible');
+        });
+    </script>
 </body>
 </html>
