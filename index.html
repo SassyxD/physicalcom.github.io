@@ -16,15 +16,30 @@
         }
     </style>
 </head>
-<body class="h-screen flex flex-col justify-center items-center bg-gray-100">
-    <img id="header-img" src="public/img/Header.png" alt="Header" class="w-max h-auto mt-2 fade-in">
-    <img src="public/img/presented.png" alt="Presented by" class="mt-2 max-w-max h-auto">
-    <img src="public/img/name.png" alt="Name" class="w-max h-auto mt-10">
+<body class="h-screen flex flex-col items-center bg-gray-100">
+    <img id="header-img" src="public/img/Header.png" alt="Header" class="w-max h-auto mt-10 fade-in mb-10">
+    <img id="presented-img" src="public/img/presented.png" alt="Presented by" class="max-w-max h-auto fade-in mb-10">
+    <img id="name-img" src="public/img/name.png" alt="Name" class="w-max h-auto fade-in mb-10">
+    <h2 class="text-xl font-semibold mt-10 fade-in" id="yaw-pitch-title">Code ของ Servo on Yaw and Pitch Axis</h2>
+    <img src="public/img/code_yaw_pitch.png" alt="Yaw and Pitch" class="w-full max-w-4xl h-auto mt-5 fade-in" id="yaw-pitch-img">
+    <img src="public/img/code_gripper.png" alt="Gripper Code" class="w-full max-w-4xl h-auto mt-10 fade-in" id="gripper-img">
 
     <script>
         window.addEventListener('load', function() {
             const headerImg = document.getElementById('header-img');
             headerImg.classList.add('fade-in-visible');
+        });
+
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                const isVisible = rect.top <= window.innerHeight && rect.bottom >= 0;
+
+                if (isVisible) {
+                    element.classList.add('fade-in-visible');
+                }
+            });
         });
     </script>
 </body>
