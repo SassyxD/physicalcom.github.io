@@ -6,31 +6,25 @@
     <title>Physical Computing</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Base styles for body */
         body {
-            background-color: #0d0d0d; /* Solid dark background */
-            color: #00ffcc; /* Bright cyan text for retro effect */
-            font-family: 'Courier New', Courier, monospace; /* Retro font */
+            background-color: #0d0d0d;
+            color: #00ffcc;
+            font-family: 'Courier New', Courier, monospace;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Ensure footer stays at the bottom */
+            min-height: 100vh;
         }
-
-        /* Header Animation */
         .slide-in-top {
             transform: translateY(-50px);
             opacity: 0;
             animation: slideIn 2s ease-out forwards;
         }
-
         @keyframes slideIn {
             to {
                 transform: translateY(0);
                 opacity: 1;
             }
         }
-
-        /* Spinning Gradient Text */
         .gradient-text {
             background: linear-gradient(90deg, #ff00cc, #ff77ff, #33ccff, #ff00cc);
             background-size: 400%;
@@ -38,7 +32,6 @@
             -webkit-text-fill-color: transparent;
             animation: gradient-spin 5s linear infinite;
         }
-
         @keyframes gradient-spin {
             0% {
                 background-position: 0% 50%;
@@ -47,33 +40,26 @@
                 background-position: 100% 50%;
             }
         }
-
-        /* Fade-in Animation */
         .fade-in {
             opacity: 0;
             transition: opacity 2s ease-in-out;
         }
-
         .fade-in-visible {
             opacity: 1;
         }
-
-        /* Button Animation */
         .github-button {
-            background-color: #222; /* Dark GitHub button */
-            color: white; /* White text */
-            border-radius: 0.375rem; /* Rounded corners */
-            padding: 1rem 2rem; /* Increased padding for height */
-            display: flex; /* Flex display for icon alignment */
-            align-items: center; /* Center vertically */
-            transition: background-color 0.3s ease, transform 0.3s ease; /* Transition */
-            border: 2px solid transparent; /* Initial transparent border */
-            position: relative; /* Position for pseudo-element */
-            overflow: hidden; /* Hide overflow for aura */
-            font-size: 1.25rem; /* Increased font size */
+            background-color: #222;
+            color: white;
+            border-radius: 0.375rem;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            font-size: 1.25rem;
         }
-
-        /* Rotating gradient aura for button */
         .github-button::before {
             content: '';
             position: absolute;
@@ -81,46 +67,38 @@
             left: 50%;
             width: 100%;
             height: 100%;
-            border-radius: 0.375rem; /* Match button border radius */
+            border-radius: 0.375rem;
             background: linear-gradient(135deg, #ff00cc, #33ccff);
             opacity: 0.5;
             transform: translate(-50%, -50%) scale(1);
-            animation: rotateGradient 3s linear infinite; /* Animate gradient */
-            z-index: 0; /* Place behind the button */
+            animation: rotateGradient 3s linear infinite;
+            z-index: 0;
         }
-
         @keyframes rotateGradient {
             0% {
                 transform: translate(-50%, -50%) scale(1);
             }
             100% {
-                transform: translate(-50%, -50%) scale(1.1); /* Slight scaling for effect */
+                transform: translate(-50%, -50%) scale(1.1);
             }
         }
-
         .github-button:hover {
-            background-color: #333; /* Darker on hover */
-            transform: translateY(-2px); /* Lift effect */
+            background-color: #333;
+            transform: translateY(-2px);
         }
-
         .github-button:active {
-            transform: translateY(0); /* Reset on click */
+            transform: translateY(0);
         }
-
-        /* Neon effect for images */
         img {
-            filter: drop-shadow(0 0 5px #ff00cc) drop-shadow(0 0 10px #ff00cc); /* Neon pink glow */
-            position: relative; /* Position for aura */
+            filter: drop-shadow(0 0 5px #ff00cc) drop-shadow(0 0 10px #ff00cc);
+            position: relative;
         }
-
-        /* Rotating gradient aura for images */
         .robo-img {
-            border: 2px solid transparent; /* Initial transparent border */
+            border: 2px solid transparent;
             transition: transform 0.2s ease;
-            position: relative; /* Position for pseudo-element */
-            overflow: hidden; /* Hide overflow for aura */
+            position: relative;
+            overflow: hidden;
         }
-
         .robo-img::before {
             content: '';
             position: absolute;
@@ -128,67 +106,61 @@
             left: 50%;
             width: 100%;
             height: 100%;
-            border-radius: 0.375rem; /* Match image border radius */
+            border-radius: 0.375rem;
             background: linear-gradient(135deg, #ff00cc, #33ccff);
             opacity: 0.5;
             transform: translate(-50%, -50%) scale(1);
-            animation: rotateGradient 3s linear infinite; /* Animate gradient */
-            z-index: 0; /* Place behind the image */
+            animation: rotateGradient 3s linear infinite;
+            z-index: 0;
         }
-
-        /* Focus and Blur Effects */
         .focus {
-            transform: scale(1.5); /* Reduced enlargement of focused image */
-            z-index: 10; /* Bring focused image to front */
+            transform: scale(1.5);
+            z-index: 10;
         }
-
         .blur {
-            filter: blur(5px); /* Blur effect for unfocused images */
+            filter: blur(5px);
         }
-
-        /* Footer Styles */
         .footer {
-            background-color: #111; /* Dark background for footer */
-            color: #00ffcc; /* Bright cyan text */
+            background-color: #111;
+            color: #00ffcc;
             position: relative;
             bottom: 0;
             width: 100%;
-            padding: 1rem 0; /* Vertical padding */
-            margin-top: auto; /* Push footer to the bottom */
-            text-align: center; /* Center text */
+            padding: 1rem 0;
+            margin-top: auto;
+            text-align: center;
         }
     </style>
 </head>
 <body class="h-screen flex flex-col items-center">
-    <!-- Header Image with Slide-in Animation -->
     <img id="header-img" src="public/img/Header.png" alt="Header" class="w-max h-auto mt-10 slide-in-top">
-
-    <!-- Topic Image: centered initially, will appear after scrolling -->
     <img id="topic-img" src="public/img/topic.png" alt="Topic" class="w-max h-auto fade-in mb-40">
-
-    <!-- Presented Image (hidden initially, appears later) -->
     <img id="presented-img" src="public/img/presented.png" alt="Presented by" class="max-w-max h-auto fade-in mt-20">
-    
-    <!-- Name Image (hidden initially) -->
     <img id="name-img" src="public/img/name.png" alt="Name" class="w-max h-auto fade-in mb-10 mt-20">
-    
-    <!-- Spinning Gradient Text -->
     <h2 class="text-2xl font-semibold mt-10 fade-in gradient-text" id="yaw-pitch-title">
         Code ของ Servo on Yaw and Pitch Axis
     </h2>
-    
-    <!-- Yaw and Pitch Image -->
     <img src="public/img/code_yaw_pitch.png" alt="Yaw and Pitch" class="w-full max-w-4xl h-auto mt-5 fade-in" id="yaw-pitch-img">
-    
-    <!-- Gripper Code Image -->
     <img src="public/img/code_gripper.png" alt="Gripper Code" class="w-full max-w-4xl h-auto mt-10 mb-32 fade-in" id="gripper-img">
+    <h3 class="text-xl font-semibold mt-10 fade-in gradient-text" id="video-presentation-title">
+        Video Presentation
+    </h3>
+    <div class="w-full max-w-4xl h-auto mt-5 mb-16 fade-in" id="video-player">
+        <iframe width="100%" height="500" src="https://www.youtube.com/embed/OFnGtzpKPsA" 
+                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+                clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
 
-    <!-- Simple Robotic Arm Overview Title -->
+    <h3 class="text-xl font-semibold mt-10 fade-in gradient-text" id="poster-presentation-title">
+        Poster Presentation
+    </h3>
+    <div class="w-full max-w-4xl h-auto mt-5 mb-16 fade-in">
+        <img src="public/img/Poster.png" width="100%" height="1000" title="Poster PDF">
+    </div>
+
     <h3 class="text-xl font-semibold mt-10 fade-in gradient-text" id="robot-arm-overview">
         Simple Robotic Arm Overviews
     </h3>
-
-    <!-- Flexbox for Robo Images -->
     <div class="flex flex-wrap justify-center mt-10 mb-20">
         <img src="public/img/robo1.jpg" alt="Robo 1" class="w-1/2 max-w-xs h-auto m-2 fade-in robo-img" id="robo1">
         <img src="public/img/robo2.jpg" alt="Robo 2" class="w-1/2 max-w-xs h-auto m-2 fade-in robo-img" id="robo2">
@@ -196,54 +168,41 @@
         <img src="public/img/robo4.jpg" alt="Robo 4" class="w-1/2 max-w-xs h-auto m-2 fade-in robo-img" id="robo4">
     </div>
 
-    <!-- GitHub Button -->
     <a href="https://github.com/SassyxD/physicalcom.github.io" target="_blank" class="github-button mb-10">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub Logo" class="w-6 h-6 mr-2"> <!-- GitHub Logo -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub Logo" class="w-6 h-6 mr-2">
         Visit GitHub
     </a>
 
-    <!-- Footer -->
     <footer class="footer mt-auto py-4 text-center">
         <p class="text-sm">
             Made with ❤️ by <a href="https://github.com/SassyxD" target="_blank" class="text-00ffcc underline">SassyxD</a>
-        </footer>
         </p>
     </footer>
-
     <script>
-        // Intersection Observer for Fade-in Effect on Scroll
         document.addEventListener("DOMContentLoaded", function() {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('fade-in-visible');
-                        observer.unobserve(entry.target); // Stop observing once element is visible
+                        observer.unobserve(entry.target);
                     }
                 });
             }, { threshold: 0.1 });
-
-            // Observe elements except the header
             document.querySelectorAll('.fade-in').forEach(element => {
                 observer.observe(element);
             });
-
-            // Robo Images click functionality
             const roboImages = document.querySelectorAll('.robo-img');
             roboImages.forEach(img => {
                 img.addEventListener('click', (e) => {
-                    // Remove focus from all images and add blur
                     roboImages.forEach(innerImg => {
                         innerImg.classList.add('blur');
                         innerImg.classList.remove('focus');
                     });
-                    // Add focus to the clicked image
                     img.classList.add('focus');
                     img.classList.remove('blur');
-                    e.stopPropagation(); // Prevent click from propagating to body
+                    e.stopPropagation();
                 });
             });
-
-            // Click outside to remove focus
             document.body.addEventListener('click', () => {
                 roboImages.forEach(img => {
                     img.classList.remove('focus');
